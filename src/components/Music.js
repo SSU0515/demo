@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MusicComponent from "./music/MusicConponent";
 import song1 from "../asset/zamona-net-newjeans-bubble-gum.mp3";
 import song1a from "../asset/zamona-net-newjeans-hype-boy.mp3";
@@ -108,7 +106,7 @@ const songs = [
   {
     title: "Omg",
     singer: "NewJeans",
-    src: [song1, song1a, song1a, song1a, song1],
+    src: [서지원, 김건모, 김윤아, 카나본, song1],
     image: img1,
   },
   {
