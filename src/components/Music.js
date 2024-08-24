@@ -93,13 +93,17 @@ const NavButton = styled.button`
 `;
 
 const PrevButton = styled(NavButton)`
-  top: 47%;
-  left: 450px;
+  top: 30%;
+  left: 400px;
+  padding-top: 100px;
+  padding-left: 100px;
 `;
 
 const NextButton = styled(NavButton)`
-  top: 52%;
-  left: 450px;
+  bottom: 15%;
+  left: 400px;
+  padding-bottom: 100px;
+  padding-left: 100px;
 `;
 
 const songs = [
@@ -236,10 +240,10 @@ const Music = () => {
       <h3>AI Vocal Cloning</h3>
       <PrevButton onClick={handlePrevClick}>
         {/* <FontAwesomeIcon icon={faChevronUp} /> */}
-        PREV
+        {/* PREV */}
       </PrevButton>
       <NextButton onClick={handleNextClick}>
-        NEXT
+        {/* NEXT */}
         {/* <FontAwesomeIcon icon={faChevronDown} /> */}
       </NextButton>
     </Container>
