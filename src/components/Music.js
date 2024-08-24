@@ -106,7 +106,7 @@ const songs = [
   {
     title: "Omg",
     singer: "NewJeans",
-    src: [서지원, 김건모, 김윤아, 카나본, song1],
+    src: [song1, song1a, song1a, song1a, song1],
     image: img1,
   },
   {
