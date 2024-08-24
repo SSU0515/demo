@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useDropzone } from "react-dropzone";
 import lucy5 from "../asset/lucy5.png";
+import ArcGaugeComponent from "../ArcGaugeComponent"; // ArcGaugeComponent 임포트
 
 const Container = styled.div`
   width: 100%;
@@ -34,6 +35,7 @@ const Lucy = styled.img`
   top: 35%;
   left: 50%;
   transform: translate(-50%);
+  opacity: 30%;
 `;
 
 const DropzoneArea = styled.div`
@@ -69,30 +71,56 @@ const LoadingText = styled.p`
   color: #fff;
 `;
 
-const LoadingBar = styled.div`
+const GaugeContainer = styled.div`
   position: absolute;
-  bottom: 250px;
-  left: 50%;
+  bottom: 20vw;
+  left: 5vw;
+  width: 30vw; /* 조정할 폭 */
+  height: 30vh; /* 조정할 높이 */
 `;
 
-// 컴포넌트
 const Detection = () => {
   const [loading, setLoading] = useState(false);
   const [fileName, setFileName] = useState("");
+  const [gaugeValue, setGaugeValue] = useState(null);
+  const [randomValue, setRandomValue] = useState(0);
+
+  // 파일-퍼센트 매핑 정의
+  const filePercentages = {
+    "song1.mp3": 85,
+    "song2.mp3": 70,
+    "song3.mp3": 45,
+  };
+
+  // useRef를 사용하여 인터벌 ID 저장
+  const randomIntervalRef = useRef(null);
 
   const { getRootProps, getInputProps } = useDropzone({
-    accept: "audio/mp3", // MP3 파일만 허용
+    accept: "audio/mp3",
     onDrop: (acceptedFiles) => {
       setLoading(true);
-      setFileName(acceptedFiles[0].name); // 파일 이름 설정
+      const file = acceptedFiles[0];
+      const name = file.name;
+      setFileName(name);
 
-      // 파일 업로드 시뮬레이션
+      // 3초 동안 랜덤 값 표시
+      randomIntervalRef.current = setInterval(() => {
+        setRandomValue(Math.floor(Math.random() * 100)); // 0에서 100 사이의 랜덤 값
+      }, 3000);
+
       setTimeout(() => {
+        clearInterval(randomIntervalRef.current);
         setLoading(false);
-        // 여기에 실제 파일 업로드 처리 로직을 추가
-      }, 5000); // 2초의 업로드 시뮬레이션
+        const percentage = filePercentages[name] || 0;
+        setGaugeValue(percentage);
+      }, 3000); // 3초 후에 지정된 값으로 변경
     },
   });
+
+  useEffect(() => {
+    // 컴포넌트 언마운트 시 인터벌 정리
+    return () => clearInterval(randomIntervalRef.current);
+  }, []);
 
   return (
     <Container>
@@ -103,13 +131,13 @@ const Detection = () => {
         <input {...getInputProps()} />
         {loading ? (
           <LoadingContainer>
-            <LoadingBar
-              data-preset="fan"
-              class="ldBar label-center"
-              data-value="70"
-            ></LoadingBar>
+            <ArcGaugeComponent value={randomValue} />
             <LoadingText>{fileName} 업로드 중...</LoadingText>
           </LoadingContainer>
+        ) : gaugeValue !== null ? (
+          <GaugeContainer>
+            <ArcGaugeComponent value={gaugeValue} />
+          </GaugeContainer>
         ) : (
           "여기에 MP3 파일을 드래그 & 드롭 하거나 클릭하여 선택하세요"
         )}
