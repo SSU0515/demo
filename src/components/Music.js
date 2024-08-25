@@ -1,17 +1,37 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import MusicComponent from "./music/MusicConponent";
-import song1 from "../asset/zamona-net-newjeans-bubble-gum.mp3";
-import song1a from "../asset/zamona-net-newjeans-hype-boy.mp3";
-import img1 from "../asset/image1.png";
-import img2 from "../asset/image2.png";
-import img3 from "../asset/image3.png";
-import img4 from "../asset/image4.png";
-import img5 from "../asset/image5.png";
-import img6 from "../asset/image6.png";
-import img7 from "../asset/image7.png";
-import img8 from "../asset/image8.png";
 import gra from "../asset/gradation.png";
+//kanabon
+import kanabon from "../asset/music/kanavon.png";
+import imissyouKanavon from "../asset/music/kanavon/카나본 AI -I MISS YOU( 원곡_서지원).mp3";
+import heyKanavon from "../asset/music/kanavon/카나본 AI - Hey Hey Hey( 원곡_김윤아).mp3";
+import namKanavon from "../asset/music/kanavon/카나본 AI - 잘못된 만남 ( 원곡_김건모 ).mp3";
+//jiwon
+import jiwon from "../asset/music/jiwon.png";
+import sorryJiwon from "../asset/music/jiwon/서지원 AI _ 미안해 널 미워해 ( 김윤아 ).mp3";
+import toyJiwon from "../asset/music/jiwon/서지원 AI_ 바램(토이).mp3";
+import namJiwon from "../asset/music/jiwon/서지원 AI _ 잘못된 만남 ( 김건모 ).mp3";
+//yuna
+import yuna from "../asset/music/yuna.png";
+import makeYuna from "../asset/music/yuna/김윤아 AI_ 화장을 고치고 (왁스).mp3";
+import momYuna from "../asset/music/yuna/김윤아 AI_ 엄마가 딸에게 ( 양희은 ).mp3";
+import bondaYuna from "../asset/music/yuna/김윤아 AI - 바람이 분다(원곡_이소라).mp3";
+//kunmo
+import kunmo from "../asset/music/kunmo.png";
+import nightKunmo from "../asset/music/kunmo/김건모 AI_ 깊은 밤을 날아서 ( 이문세 ).mp3";
+import heyKunmo from "../asset/music/kunmo/김건모  AI - Hey Hey Hey (원곡_ 김윤아).mp3";
+import imissyouKunmo from "../asset/music/kunmo/김건모 AI -I MISS YOU(원곡_서지원).mp3";
+//songimg
+import simg1 from "../asset/music/song1.png";
+import simg2 from "../asset/music/song2.png";
+import simg3 from "../asset/music/song3.png";
+import simg4 from "../asset/music/song4.png";
+import simg5 from "../asset/music/song5.png";
+import simg6 from "../asset/music/song6.png";
+import simg7 from "../asset/music/song7.png";
+import simg8 from "../asset/music/song8.png";
+import simg9 from "../asset/music/song9.png";
 
 const Container = styled.div`
   width: 100%;
@@ -39,7 +59,7 @@ const ImgBox = styled.div`
   position: absolute;
   top: 220px;
   left: -250px;
-  background-image: url(${(props) => props.image});
+  background-image: url(${(props) => props.image || ""});
   background-size: cover;
   background-position: center;
   z-index: 2;
@@ -108,59 +128,90 @@ const NextButton = styled(NavButton)`
 
 const songs = [
   {
-    title: "Omg",
-    singer: "NewJeans",
-    src: [song1, song1a, song1a, song1a, song1],
-    image: img1,
+    title: "I MISS YOU",
+    singer: "서지원",
+    src: [imissyouKanavon, imissyouKunmo],
+    image: [kanabon, kunmo],
+    ai: [kanabon, kunmo],
+    button: ["kanabon", "kunmo"],
+    songimg: [simg1],
   },
   {
-    title: "ASPA",
-    singer: "NewJeans",
-    src: [song1, song1a, song1a, song1a, song1],
-    image: img2,
+    title: "Hey Hey Hey",
+    singer: "김윤아",
+    src: [heyKanavon, heyKunmo],
+    image: [kanabon, kunmo],
+    ai: [kanabon, kunmo],
+    button: ["kanabon", "kunmo"],
+    songimg: [simg2],
   },
   {
-    title: "Small Girl",
-    singer: "leeYoungji",
-    src: [song1, song1a, song1a, song1a, song1],
-    image: img3,
+    title: "잘못된 만남",
+    singer: "김건모",
+    src: [namJiwon, namKanavon],
+    image: [jiwon, kanabon],
+    ai: [jiwon, kanabon],
+    button: ["jiwon", "kanabon"],
+    songimg: [simg3],
   },
   {
-    title: "Supernova",
-    singer: "Aspa",
-    src: [song1, song1a, song1a, song1a, song1],
-    image: img4,
+    title: "바람이 분다",
+    singer: "이소라",
+    src: [bondaYuna],
+    image: [yuna],
+    ai: [yuna],
+    button: ["yuna"],
+    songimg: [simg4],
   },
   {
-    title: "Hype Boy",
-    singer: "NewJeans",
-    src: [song1, song1a, song1a, song1],
-    image: img5,
+    title: "엄마가 딸에게",
+    singer: "양희은",
+    src: [momYuna],
+    image: [yuna],
+    ai: [yuna],
+    button: ["yuna"],
+    songimg: [simg5],
   },
   {
-    title: "lalalaala",
-    singer: "hello",
-    src: [song1, song1a, song1a, song1a, song1],
-    image: img6,
+    title: "화장을 고치고",
+    singer: "왁스",
+    src: [makeYuna],
+    image: [yuna],
+    ai: [yuna],
+    button: ["yuna"],
+    songimg: [simg6],
   },
   {
-    title: "abcdefu",
-    singer: "Bye",
-    src: [song1, song1a, song1a, song1a, song1],
-    image: img7,
+    title: "바램",
+    singer: "토이",
+    src: [toyJiwon],
+    image: [jiwon],
+    ai: [jiwon],
+    button: ["jiwon"],
+    songimg: [simg7],
   },
   {
-    title: "Ditto",
-    singer: "NewJeans",
-    src: [song1, song1a, song1a, song1a, song1],
-    image: img8,
+    title: "미안해 널 미워해",
+    singer: "김윤아",
+    src: [sorryJiwon],
+    image: [jiwon],
+    ai: [jiwon],
+    button: ["jiwon"],
+    songimg: [simg9],
+  },
+  {
+    title: "깊은 밤을 날아서",
+    singer: "이문세",
+    src: [nightKunmo],
+    image: [kunmo],
+    ai: [kunmo],
+    button: ["kunmo"],
+    songimg: [simg8],
   },
 ];
-
 const Music = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 마우스 휠 이벤트 핸들러
   const handleWheel = (event) => {
     if (event.deltaY > 0) {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % songs.length);
@@ -171,30 +222,27 @@ const Music = () => {
     }
   };
 
-  // 이전 곡 버튼 클릭 핸들러
   const handlePrevClick = () => {
     setCurrentIndex(
       (prevIndex) => (prevIndex - 1 + songs.length) % songs.length
     );
   };
 
-  // 다음 곡 버튼 클릭 핸들러
   const handleNextClick = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % songs.length);
   };
 
-  // 노래 제목 렌더링
   const renderSongTitles = () => {
     const visibleSongs = [];
     for (let i = 0; i < 5; i++) {
       visibleSongs.push(songs[(currentIndex + i) % songs.length]);
     }
 
-    const angleIncrement = 130 / (visibleSongs.length - 1); // 각 노래 제목 사이의 각도
-    const radius = 300; // 제목들이 배치될 원의 반지름
+    const angleIncrement = 130 / (visibleSongs.length - 1);
+    const radius = 300;
 
     return visibleSongs.map((song, index) => {
-      const angle = index * angleIncrement - 90; // 중앙을 기준으로 90도씩 회전
+      const angle = index * angleIncrement - 90;
       const topPosition = `calc(50% - ${
         radius * Math.cos((angle * Math.PI) / 180)
       }px)`;
@@ -202,7 +250,7 @@ const Music = () => {
         radius * Math.sin((angle * Math.PI) / 180)
       }px)`;
 
-      return index === 2 ? ( // 중앙에 위치한 곡일 때만 MusicComponent 렌더링
+      return index === 2 ? (
         <div
           key={song.title}
           style={{
@@ -232,10 +280,13 @@ const Music = () => {
     });
   };
 
+  const safeIndex = (currentIndex + 2) % songs.length;
+  const songImage = songs[safeIndex]?.songimg[0] || ""; // 현재 곡의 songimg를 배경 이미지로 설정
+
   return (
     <Container onWheel={handleWheel}>
       {renderSongTitles()}
-      <ImgBox image={songs[currentIndex].image} />
+      <ImgBox image={songImage} />
       <ImgBoxBack src={gra} alt="a" />
       <h3>AI Vocal Cloning</h3>
       <PrevButton onClick={handlePrevClick}>

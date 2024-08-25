@@ -1,4 +1,3 @@
-// MusicComponent.js
 import React, { useState, useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 
@@ -51,18 +50,25 @@ const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   border: none;
   border-radius: 50%;
-  background-color: ${(props) => (props.isActive ? "#fff" : "#666")};
-  color: #000;
+  background-color: ${(props) => (props.isActive ? "transparent" : "#666")};
+  color: ${(props) => (props.isActive ? "transparent" : "fff")};
   position: relative;
+  background-image: ${(props) =>
+    props.isActive ? `url(${props.bgImage})` : "none"};
+  background-size: cover;
+  background-position: center;
+
   &:hover {
     background-color: #ff723a;
+    background-image: ${(props) =>
+      props.isActive ? `url(${props.bgImage})` : `url(${props.bgImage})`};
   }
 
   &::after {
@@ -86,18 +92,19 @@ const Canvas = styled.canvas`
   background-color: none;
 `;
 
-const MusicComponent = ({ song }) => {
-  const [currentSrc, setCurrentSrc] = useState(song.src[0]);
+const MusicComponent = ({ song, onButtonClick = () => {} }) => {
+  const sources = Array.isArray(song.src) ? song.src : [song.src];
+
+  const [currentSrc, setCurrentSrc] = useState(sources[0]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const audioRef = useRef(null);
   const canvasRef = useRef(null);
-  const audioContextRef = useRef(null); // AudioContext를 재사용하기 위해 useRef로 저장
-  const analyserRef = useRef(null); // AnalyserNode도 useRef로 저장
+  const audioContextRef = useRef(null);
+  const analyserRef = useRef(null);
 
   useEffect(() => {
     if (!audioContextRef.current) {
-      // 처음 로드될 때만 AudioContext와 AnalyserNode를 생성
       audioContextRef.current = new (window.AudioContext ||
         window.webkitAudioContext)();
       analyserRef.current = audioContextRef.current.createAnalyser();
@@ -138,30 +145,21 @@ const MusicComponent = ({ song }) => {
         barHeight = dataArray[i];
 
         const y = HEIGHT - barHeight / 2;
-
-        // 바의 x, y 좌표를 계산하여 중앙 정렬
         const barX = x + barWidth / 0.9;
 
         canvasCtx.fillStyle = `#ff723a`;
 
-        // 코너를 둥글게 처리
         canvasCtx.beginPath();
         canvasCtx.moveTo(barX - barWidth / 2, y + barHeight / 2);
         canvasCtx.lineTo(barX + barWidth / 2, y + barHeight / 2);
-        canvasCtx.arcTo(
-          barX + barWidth / 2,
-          y,
-          barX - barWidth / 2,
-          y,
-          5 // border-radius 값
-        );
+        canvasCtx.arcTo(barX + barWidth / 2, y, barX - barWidth / 2, y, 5);
         canvasCtx.lineTo(barX - barWidth / 2, y);
         canvasCtx.arcTo(
           barX - barWidth / 2,
           y + barHeight / 2,
           barX + barWidth / 2,
           y + barHeight / 2,
-          5 // border-radius 값
+          5
         );
         canvasCtx.fill();
 
@@ -170,15 +168,16 @@ const MusicComponent = ({ song }) => {
     };
 
     draw();
-  }, [currentSrc]); // currentSrc가 바뀔 때마다 애니메이션 재생
+  }, [currentSrc]);
 
   const handleButtonClick = (index) => {
     setIsLoading(true);
     setActiveIndex(index);
-    setCurrentSrc(song.src[index]);
+    setCurrentSrc(sources[index]);
+    onButtonClick(sources[index]); // Notify parent about the button click
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // 로딩 애니메이션 3s
+    }, 3000);
   };
 
   return (
@@ -193,14 +192,15 @@ const MusicComponent = ({ song }) => {
         원하는 가수를 선택해 <span>AI Vocal Cloning</span>을 경험해보세요.
       </h4>
       <ButtonContainer>
-        {song.src.map((_, index) => (
+        {sources.map((_, index) => (
           <Button
             key={index}
             isActive={activeIndex === index}
             isLoading={isLoading && activeIndex === index}
             onClick={() => handleButtonClick(index)}
+            bgImage={song.ai[index]} // 배경 이미지 설정
           >
-            가수 {index + 1}
+            {song.button[index]}
           </Button>
         ))}
       </ButtonContainer>
