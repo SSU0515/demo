@@ -26,6 +26,7 @@ const Title = styled.h2`
   top: 180px;
   left: 150px;
   font-size: 30px;
+
   z-index: 4;
 `;
 
@@ -34,6 +35,9 @@ const VideoBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  span {
+    margin-top: 20px;
+  }
 `;
 
 const Box = styled.div`

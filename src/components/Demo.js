@@ -56,6 +56,7 @@ const Buttons = styled.div`
 const Button = styled.button`
   border: none;
   background: none;
+  color: #666;
   font-size: 30px;
   cursor: pointer;
   &:hover {

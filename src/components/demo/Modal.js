@@ -24,16 +24,22 @@ const ModalContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 
 const CloseButton = styled.button`
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 30px;
+  right: 30px;
   background: none;
+  color: #fff;
   border: none;
   font-size: 30px;
+  z-index: 1000;
   cursor: pointer;
+  &:hover {
+    color: #ff723a;
+  }
 `;
 
 function Modal({ modalOpen, modalClose, url }) {
