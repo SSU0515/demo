@@ -65,7 +65,7 @@ const Buttons = styled.div`
   z-index: 0;
   @media (max-width: 600px) {
     left: 50%;
-    top: 0;
+    top: 30%;
     transform: translate(-25%);
     width: 80vw;
     z-index: 7;
