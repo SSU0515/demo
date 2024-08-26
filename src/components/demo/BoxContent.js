@@ -65,6 +65,7 @@ const BoxContent = ({ item, imgsize }) => {
             modalOpen={modal}
             modalClose={modalClose}
             id={item.title} // 모달에 표시할 내용을 적절히 전달합니다
+            url={item.url}
           />
         </ButtonBox>
       </ContentBox>

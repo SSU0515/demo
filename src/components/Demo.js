@@ -1,8 +1,9 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import Slide from "./demo/Slide";
+import Modal from "./demo/Modal";
+import { data } from "./demo/demodata";
 
 const Container = styled.div`
   width: 100%;
@@ -55,7 +56,6 @@ const Buttons = styled.div`
 const Button = styled.button`
   border: none;
   background: none;
-  color: #888;
   font-size: 30px;
   cursor: pointer;
   &:hover {
@@ -87,42 +87,11 @@ const boxVariants = {
   }),
 };
 
-const data = [
-  {
-    id: 1,
-    title: "1",
-    src: "https://cdn.nbnnews.co.kr/news/photo/202209/704402_704559_2313.jpg",
-    url: "xm_7vfxPx0Q",
-  },
-  {
-    id: 2,
-    title: "2",
-    src: "https://i.ytimg.com/vi/VOh3_l5yEoo/maxresdefault.jpg",
-    url: "apHJTcD1psw",
-  },
-  {
-    id: 3,
-    title: "3",
-    src: "https://i.ytimg.com/an_webp/xm_7vfxPx0Q/mqdefault_6s.webp?du=3000&sqp=CNiKsLYG&rs=AOn4CLCbRvTAzTDLck9t0dwVye8b3MpQcA",
-    url: "apHJTcD1psw",
-  },
-  {
-    id: 4,
-    title: "4",
-    src: "https://i.ytimg.com/an_webp/gctzN6wYYOY/mqdefault_6s.webp?du=3000&sqp=CJKTsLYG&rs=AOn4CLB2hYnBHEzFsODcx6f6PfETr-5TdA",
-    url: "apHJTcD1psw",
-  },
-  {
-    id: 5,
-    title: "5",
-    src: "https://ugc.production.linktr.ee/QYgVou2TQnmDq1vZqRGL_33QLA4HT4yUM2U1P",
-    url: "apHJTcD1psw",
-  },
-];
-
 function Demo() {
   const [back, setBack] = useState(false);
   const [visible, setVisible] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedUrl, setSelectedUrl] = useState("");
 
   const nextBtn = () => {
     setBack(false);
@@ -132,6 +101,15 @@ function Demo() {
   const prevBtn = () => {
     setBack(true);
     setVisible((prev) => (prev === 0 ? data.length - 1 : prev - 1));
+  };
+
+  const openModal = (url) => {
+    setSelectedUrl(url);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
   };
 
   const prevIndex = visible === 0 ? data.length - 1 : visible - 1;
@@ -153,6 +131,7 @@ function Demo() {
               position="3vw"
               size="small"
               imgsize="small"
+              onClick={() => openModal(data[prevIndex].url)} // Open modal on click
             />
           )}
           {data.length > 0 && (
@@ -162,9 +141,11 @@ function Demo() {
               img={data[visible].src}
               variants={boxVariants}
               custom={back}
+              src={data[visible].url}
               position="calc(50% - 13.5vw)"
               size="large"
               imgsize="large"
+              onClick={() => openModal(data[visible].url)} // Open modal on click
             />
           )}
           {data.length > 0 && (
@@ -177,6 +158,7 @@ function Demo() {
               position="calc(100% - 18vw)"
               size="small"
               imgsize="small"
+              onClick={() => openModal(data[nextIndex].url)} // Open modal on click
             />
           )}
         </AnimatePresence>
@@ -185,6 +167,11 @@ function Demo() {
         <Button onClick={prevBtn}>◀</Button>
         <Button onClick={nextBtn}>▶</Button>
       </Buttons>
+      <Modal
+        modalOpen={modalOpen}
+        modalClose={closeModal}
+        url={selectedUrl} // Pass the selected URL to Modal
+      />
     </Container>
   );
 }

@@ -31,6 +31,13 @@ const Title = styled.h2`
 
 const VideoBox = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Box = styled.div`
+  display: flex;
   justify-content: center;
   align-items: center;
 `;
@@ -40,10 +47,16 @@ const Healthcare = () => {
     <Container>
       <BgTitle>Health Care</BgTitle>
       <Title>Health Care</Title>
-      <VideoBox>
-        <video src={before} controls />
-        <video src={after} controls />
-      </VideoBox>
+      <Box>
+        <VideoBox>
+          <video src={before} controls />
+          <span>BEFORE</span>
+        </VideoBox>
+        <VideoBox>
+          <video src={after} controls />
+          <span>AFTER</span>
+        </VideoBox>
+      </Box>
     </Container>
   );
 };
