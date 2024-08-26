@@ -12,11 +12,7 @@ import jiwon from "../asset/music/jiwon.png";
 import sorryJiwon from "../asset/music/jiwon/서지원 AI _ 미안해 널 미워해 ( 김윤아 ).mp3";
 import toyJiwon from "../asset/music/jiwon/서지원 AI_ 바램(토이).mp3";
 import namJiwon from "../asset/music/jiwon/서지원 AI _ 잘못된 만남 ( 김건모 ).mp3";
-//yuna
-import yuna from "../asset/music/yuna.png";
-import makeYuna from "../asset/music/yuna/김윤아 AI_ 화장을 고치고 (왁스).mp3";
-import momYuna from "../asset/music/yuna/김윤아 AI_ 엄마가 딸에게 ( 양희은 ).mp3";
-import bondaYuna from "../asset/music/yuna/김윤아 AI - 바람이 분다(원곡_이소라).mp3";
+
 //kunmo
 import kunmo from "../asset/music/kunmo.png";
 import nightKunmo from "../asset/music/kunmo/김건모 AI_ 깊은 밤을 날아서 ( 이문세 ).mp3";
@@ -26,9 +22,6 @@ import imissyouKunmo from "../asset/music/kunmo/김건모 AI -I MISS YOU(원곡_
 import simg1 from "../asset/music/song1.png";
 import simg2 from "../asset/music/song2.png";
 import simg3 from "../asset/music/song3.png";
-import simg4 from "../asset/music/song4.png";
-import simg5 from "../asset/music/song5.png";
-import simg6 from "../asset/music/song6.png";
 import simg7 from "../asset/music/song7.png";
 import simg8 from "../asset/music/song8.png";
 import simg9 from "../asset/music/song9.png";
@@ -154,33 +147,7 @@ const songs = [
     button: ["jiwon", "kanabon"],
     songimg: [simg3],
   },
-  {
-    title: "바람이 분다",
-    singer: "이소라",
-    src: [bondaYuna],
-    image: [yuna],
-    ai: [yuna],
-    button: ["yuna"],
-    songimg: [simg4],
-  },
-  {
-    title: "엄마가 딸에게",
-    singer: "양희은",
-    src: [momYuna],
-    image: [yuna],
-    ai: [yuna],
-    button: ["yuna"],
-    songimg: [simg5],
-  },
-  {
-    title: "화장을 고치고",
-    singer: "왁스",
-    src: [makeYuna],
-    image: [yuna],
-    ai: [yuna],
-    button: ["yuna"],
-    songimg: [simg6],
-  },
+
   {
     title: "바램",
     singer: "토이",

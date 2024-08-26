@@ -111,11 +111,13 @@ const Detection = () => {
 
   // 파일-퍼센트 매핑 정의
   const filePercentages = {
-    "song1.mp3": 85,
-    "song2.mp3": 60,
-    "song3.mp3": 45,
+    "김윤아_나인 너에게_원본.mp3": 14,
+    "김윤아 AI ( FAKE )_ 나인 너에게.mp3": 91,
+    "조성모_피아노_원본.mp3": 17,
+    "조성모 AI ( FAKE )_ 피아노 .mp3": 93,
+    "김건모 _ 사랑이 떠나가네_ 원본.mp3": 7,
+    "김건모 AI (FAKE) _ 사랑이 떠나가네.mp3": 89,
   };
-
   // useRef를 사용하여 인터벌 ID 저장
   const randomIntervalRef = useRef(null);
 
