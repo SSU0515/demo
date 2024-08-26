@@ -6,7 +6,7 @@ import ArcGaugeComponent from "../ArcGaugeComponent"; // ArcGaugeComponent ì„í
 
 const Container = styled.div`
   width: 100%;
-  height: 1400px;
+  height: 180vh;
   color: #fff;
   position: relative;
 `;
