@@ -37,13 +37,13 @@ const BoxContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 25vh;
+  top: 35%;
   left: 0;
 `;
 
 const Buttons = styled.div`
   position: absolute;
-  top: 50vh;
+  top: 50%;
   left: 25vw;
   width: 50vw;
   display: flex;
