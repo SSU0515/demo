@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import YouTube from "react-youtube";
 
 // 모달의 배경 오버레이 스타일 정의
 const Overlay = styled.div`
@@ -43,6 +44,22 @@ function Modal({ modalOpen, modalClose, id, url }) {
         onClick={(e) => e.stopPropagation()} // 모달 컨테이너를 클릭해도 모달이 닫히지 않도록 이벤트 전파 중지
       >
         {id}
+        <YouTube
+          videoId={url}
+          opts={{
+            width: "560",
+            height: "315",
+            playerVars: {
+              autoplay: 1, //자동재생 O
+              rel: 0, //관련 동영상 표시하지 않음 (근데 별로 쓸모 없는듯..)
+              modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
+            },
+          }}
+          //이벤트 리스너
+          onEnd={(e) => {
+            e.target.stopVideo(0);
+          }}
+        />
       </Container>
     </Overlay>
   );

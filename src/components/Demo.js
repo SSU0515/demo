@@ -8,6 +8,7 @@ const Container = styled.div`
   width: 100%;
   height: 120vh;
   color: #fff;
+  padding-top: 20%;
   position: relative;
 `;
 
@@ -54,9 +55,12 @@ const Buttons = styled.div`
 const Button = styled.button`
   border: none;
   background: none;
-  color: #ff723a;
+  color: #888;
   font-size: 40px;
   cursor: pointer;
+  &:hover {
+    color: #ff723a;
+  }
 `;
 
 const boxVariants = {
@@ -89,35 +93,34 @@ const data = [
     title: "1",
     src: "https://cdn.nbnnews.co.kr/news/photo/202209/704402_704559_2313.jpg",
 
-    url: "https://youtu.be/apHJTcD1psw?si=2lt-ZLbiaSsj3Iqc",
+    url: "https://www.youtube.com/watch?v=apHJTcD1psw",
   },
   {
     id: 2,
     title: "2",
     src: "https://cdn.nbnnews.co.kr/news/photo/202209/704402_704559_2313.jpg",
-
-    url: "https://youtu.be/apHJTcD1psw?si=2lt-ZLbiaSsj3Iqc",
+    url: "https://www.youtube.com/watch?v=apHJTcD1psw",
   },
   {
     id: 3,
     title: "3",
     src: "https://cdn.nbnnews.co.kr/news/photo/202209/704402_704559_2313.jpg",
 
-    url: "https://youtu.be/apHJTcD1psw?si=2lt-ZLbiaSsj3Iqc",
+    url: "https://www.youtube.com/watch?v=apHJTcD1psw",
   },
   {
     id: 4,
     title: "4",
     src: "https://cdn.nbnnews.co.kr/news/photo/202209/704402_704559_2313.jpg",
 
-    url: "https://youtu.be/apHJTcD1psw?si=2lt-ZLbiaSsj3Iqc",
+    url: "https://www.youtube.com/watch?v=apHJTcD1psw",
   },
   {
     id: 5,
     title: "5",
     src: "https://cdn.nbnnews.co.kr/news/photo/202209/704402_704559_2313.jpg",
 
-    url: "https://youtu.be/apHJTcD1psw?si=2lt-ZLbiaSsj3Iqc",
+    url: "https://www.youtube.com/watch?v=apHJTcD1psw",
   },
 ];
 
