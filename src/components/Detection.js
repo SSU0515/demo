@@ -6,7 +6,7 @@ import ArcGaugeComponent from "../ArcGaugeComponent"; // ArcGaugeComponent 임�
 
 const Container = styled.div`
   width: 100%;
-  height: 180vh;
+  height: 120vh;
   color: #fff;
   position: relative;
 `;
@@ -28,11 +28,19 @@ const Title = styled.h2`
   font-size: 30px;
   z-index: 4;
 `;
+const Veta = styled.h3`
+  position: absolute;
+  top: 230px;
+  left: 150px;
+  font-size: 14px;
+  z-index: 4;
+  color: #555;
+`;
 
 const Lucy = styled.img`
-  width: 500px;
+  width: 30vw;
   position: absolute;
-  top: 35%;
+  top: -20vw;
   left: 50%;
   transform: translate(-50%);
   opacity: 30%;
@@ -40,7 +48,7 @@ const Lucy = styled.img`
 
 const DropzoneArea = styled.div`
   position: absolute;
-  bottom: 450px;
+  bottom: 10%;
   left: 50%;
   transform: translate(-50%);
   width: 100%;
@@ -104,7 +112,7 @@ const Detection = () => {
   // 파일-퍼센트 매핑 정의
   const filePercentages = {
     "song1.mp3": 85,
-    "song2.mp3": 80,
+    "song2.mp3": 60,
     "song3.mp3": 45,
   };
 
@@ -144,8 +152,13 @@ const Detection = () => {
     <Container>
       <BgTitle>AI Voice Detection</BgTitle>
       <Title>AI Voice Detection</Title>
-      <Lucy src={lucy5} alt="lucy5" />
+      <Veta>
+        정해진 파일명에만 반응하는 Veta버전입니다. 실제 모델 출시는 11월
+        예정입니다.
+      </Veta>
       <DropzoneArea {...getRootProps()}>
+        <Lucy src={lucy5} alt="lucy5" />
+
         <input {...getInputProps()} />
         <span>여기에 MP3 파일을 드래그 & 드롭 하거나 클릭하여 선택하세요.</span>
         {loading ? (

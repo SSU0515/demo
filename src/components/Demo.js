@@ -55,8 +55,8 @@ const Buttons = styled.div`
 const Button = styled.button`
   border: none;
   background: none;
-  color: #888;
-  font-size: 40px;
+  /* color: #888; */
+  font-size: 30px;
   cursor: pointer;
   &:hover {
     color: #ff723a;
@@ -143,8 +143,8 @@ function Demo() {
 
   return (
     <Container>
-      <BgTitle>Demo</BgTitle>
-      <Title>Demo</Title>
+      <BgTitle>Library</BgTitle>
+      <Title>Library</Title>
       <BoxContainer>
         <AnimatePresence custom={back} mode="sync">
           {data.length > 0 && (
