@@ -64,8 +64,8 @@ const Buttons = styled.div`
   align-items: center;
   z-index: 0;
   @media (max-width: 600px) {
-    left: 50%;
-    top: 30%;
+    left: 52%;
+    top: 50%;
     transform: translate(-25%);
     width: 80vw;
     z-index: 7;
