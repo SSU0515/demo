@@ -14,42 +14,42 @@ const Container = styled.div`
 const ContentBox = styled.div`
   width: 90%;
   display: flex;
-  flex-direction: column; /* Ensure items stack vertically */
   margin: 0 auto;
 `;
 
-const ExBox = styled.div`
-  width: 80%;
+const ButtonBox = styled.div`
   display: flex;
+  justify-content: end;
+  align-items: flex-end;
   flex-direction: column;
-  p {
-    font-family: "nexon";
-    font-weight: 300;
-    font-size: 18px;
-    margin-bottom: 10px;
+  gap: 10px;
+  width: 20%;
+  padding-top: 20px;
+  a {
+    text-align: end;
   }
 `;
 
-const Title = styled.h2`
-  font-family: "nexonB";
-  font-size: 35px;
-  margin-bottom: 20px;
-  color: #fccc44;
-`;
+// const ModalBtn = styled.button`
+//   width: 45px;
+//   height: 45px;
+//   &:hover {
+//     scale: 1.2;
+//   }
+// `;
 
 const ImageWrapper = styled.div`
-  background: ${({ imglink }) => `url(${imglink}) no-repeat center center`};
+  background: ${({ src }) => `url(${src}) no-repeat center center`};
   background-size: cover;
-  width: 90%;
-  height: ${({ imgsize }) => (imgsize === "large" ? "275px" : "185px")};
+  width: ${({ imgsize }) => (imgsize === "large" ? "25vw" : "15vw")};
+  height: ${({ imgsize }) => (imgsize === "large" ? "25vw" : "15vw")};
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  margin-bottom: 30px;
-  border-radius: 20px;
+  border-radius: 100%;
 `;
 
-const BoxContent = () => {
+const BoxContent = ({ item, imgsize }) => {
   const [modal, setModal] = useState(false);
 
   const modalOpen = () => setModal(true);
@@ -57,20 +57,20 @@ const BoxContent = () => {
 
   return (
     <Container>
+      {/* 이미지가 제대로 표시되도록 item.src를 사용합니다 */}
+      <ImageWrapper src={item.src} imgsize={imgsize} onClick={modalOpen} />
       <ContentBox>
-        <ImageWrapper
-          imglink="https://via.placeholder.com/600"
-          imgsize="large"
-        />
-        <ExBox>
-          <Title>Your Title Here</Title>
-          <p>Some description or content goes here.</p>
-        </ExBox>
-        <button onClick={modalOpen}>Open Modal</button>
-        <Modal modalOpen={modal} modalClose={modalClose} />
+        <ButtonBox>
+          <Modal
+            modalOpen={modal}
+            modalClose={modalClose}
+            id={item.title} // 모달에 표시할 내용을 적절히 전달합니다
+          />
+        </ButtonBox>
       </ContentBox>
     </Container>
   );
 };
 
 export default BoxContent;
+//지금 코드의 문제점은 1.슬라이드에 이미지가 뜨지 않는다 2.모달창위로 prev,next버튼과 next슬라이드가 보인다

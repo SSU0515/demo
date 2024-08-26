@@ -45,7 +45,7 @@ const Container = styled.div`
     position: absolute;
     top: 60px;
     right: 20px;
-    font-size: 14rem;
+    font-size: 10vw;
     font-weight: 900;
     color: #222;
     z-index: 0;

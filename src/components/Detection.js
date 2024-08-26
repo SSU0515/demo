@@ -15,7 +15,7 @@ const BgTitle = styled.h3`
   position: absolute;
   top: 60px;
   right: -70px;
-  font-size: 13rem;
+  font-size: 10vw;
   font-weight: 900;
   color: #222;
   z-index: 0;
