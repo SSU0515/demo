@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Music from "./components/Music";
 import Detection from "./components/Detection";
 import Demo from "./components/Demo";
+import Healthcare from "./components/Healthcare";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
@@ -62,6 +63,7 @@ function App() {
       <Music />
       <Detection />
       <Demo />
+      <Healthcare />
       <PostsContainer>
         <ul>
           {posts.map((post) => (
