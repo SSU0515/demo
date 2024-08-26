@@ -9,6 +9,9 @@ const Container = styled.div`
   height: 120vh;
   color: #fff;
   position: relative;
+  @media (max-width: 600px) {
+    height: 100vh;
+  }
 `;
 
 const BgTitle = styled.h3`
@@ -19,6 +22,9 @@ const BgTitle = styled.h3`
   font-weight: 900;
   color: #222;
   z-index: 0;
+  @media (max-width: 600px) {
+    font-size: 40vw;
+  }
 `;
 
 const Title = styled.h2`
@@ -44,6 +50,10 @@ const Lucy = styled.img`
   left: 50%;
   transform: translate(-50%);
   opacity: 30%;
+  @media (max-width: 600px) {
+    width: 80vw;
+    top: -40vw;
+  }
 `;
 
 const DropzoneArea = styled.div`
@@ -81,6 +91,9 @@ const LoadingText = styled.p`
   margin-top: 10px;
   font-size: 16px;
   color: #fff;
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
 `;
 
 const GaugeContainer = styled.div`
@@ -92,6 +105,9 @@ const GaugeContainer = styled.div`
   align-items: center;
   justify-content: center; /* 중앙 정렬 */
   text-align: center; /* 텍스트 중앙 정렬 */
+  @media (max-width: 600px) {
+    bottom: 15vh;
+  }
 `;
 const GaugeText = styled.div`
   position: absolute;
@@ -102,6 +118,11 @@ const GaugeText = styled.div`
   padding: 0 5vw;
   justify-content: space-between;
   color: #ff723a;
+  @media (max-width: 600px) {
+    width: 100vw;
+    bottom: -12vh;
+    right: -26vw;
+  }
 `;
 const Detection = () => {
   const [loading, setLoading] = useState(false);
@@ -115,7 +136,7 @@ const Detection = () => {
     "김윤아 AI ( FAKE )_ 나인 너에게.mp3": 91,
     "조성모_피아노_원본.mp3": 17,
     "조성모 AI ( FAKE )_ 피아노 .mp3": 93,
-    "김건모 _ 사랑이 떠나가네_ 원본.mp3": 7,
+    "김건모  _ 사랑이 떠나가네_ 원본.mp3": 7,
     "김건모 AI (FAKE) _ 사랑이 떠나가네.mp3": 89,
   };
   // useRef를 사용하여 인터벌 ID 저장

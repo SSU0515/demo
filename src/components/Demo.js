@@ -11,6 +11,10 @@ const Container = styled.div`
   color: #fff;
   padding-top: 20%;
   position: relative;
+  @media (max-width: 600px) {
+    width: 100%;
+    height: 80vh;
+  }
 `;
 
 const BgTitle = styled.h3`
@@ -21,6 +25,9 @@ const BgTitle = styled.h3`
   font-weight: 900;
   color: #222;
   z-index: 0;
+  @media (max-width: 600px) {
+    font-size: 40vw;
+  }
 `;
 
 const Title = styled.h2`
@@ -40,6 +47,11 @@ const BoxContainer = styled.div`
   position: absolute;
   top: 35%;
   left: 0;
+  @media (max-width: 600px) {
+    height: 100vh;
+    width: 50%;
+    left: 2%;
+  }
 `;
 
 const Buttons = styled.div`
@@ -51,6 +63,13 @@ const Buttons = styled.div`
   justify-content: space-between;
   align-items: center;
   z-index: 0;
+  @media (max-width: 600px) {
+    left: 50%;
+    top: 0;
+    transform: translate(-25%);
+    width: 80vw;
+    z-index: 7;
+  }
 `;
 
 const Button = styled.button`

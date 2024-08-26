@@ -47,6 +47,10 @@ const ImageWrapper = styled.div`
   justify-content: center;
   margin: 0 auto;
   border-radius: 100%;
+  @media (max-width: 600px) {
+    width: ${(props) => (props.size === "large" ? "70vw" : "55vw")};
+    height: ${(props) => (props.size === "large" ? "70vw" : "55vw")};
+  }
 `;
 
 const BoxContent = ({ item, imgsize }) => {

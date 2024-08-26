@@ -37,6 +37,13 @@ const BoxBase = styled(motion.div)`
         z-index: 0;
       }
     `};
+  @media (max-width: 600px) {
+    top: 10%;
+    left: 50%;
+    margin-left: 50%;
+    width: ${(props) => (props.size === "large" ? "70vw" : "55vw")};
+    height: ${(props) => (props.size === "large" ? "70vw" : "55vw")};
+  }
 `;
 
 const Slide = ({ item, variants, custom, position, size, imgsize }) => {

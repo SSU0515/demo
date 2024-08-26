@@ -19,6 +19,9 @@ const BgTitle = styled.h3`
   font-weight: 900;
   color: #222;
   z-index: 0;
+  @media (max-width: 600px) {
+    font-size: 40vw;
+  }
 `;
 
 const Title = styled.h2`
@@ -35,8 +38,13 @@ const VideoBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 4;
   span {
     margin-top: 20px;
+  }
+  @media (max-width: 600px) {
+    width: 100vw;
+    margin-bottom: 20px;
   }
 `;
 
@@ -44,6 +52,11 @@ const Box = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 600px) {
+    width: 100vw;
+    flex-direction: column;
+    padding-left: 50%;
+  }
 `;
 
 const Healthcare = () => {
