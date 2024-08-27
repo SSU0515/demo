@@ -1,7 +1,7 @@
 import video1 from "../../asset/demovideo/video1.mp4";
 import video2 from "../../asset/demovideo/video2.mp4";
 import video3 from "../../asset/demovideo/video3.mp4";
-// import video4 from "../../asset/demovideo/video4.mp4";
+import video4 from "../../asset/demovideo/video4.mov";
 import video5 from "../../asset/demovideo/video5.mp4";
 import video6 from "../../asset/demovideo/video6.mp4";
 import video7 from "../../asset/demovideo/video7.mp4";
@@ -29,12 +29,12 @@ export const data = [
     src: "https://i.ibb.co/LpFhT10/2024-08-27-163952.png",
     url: video3,
   },
-  // {
-  //   id: 4,
-  //   title: "4",
-  //   src: "https://ifh.cc/g/6SQAyA.jpg",
-  //   url: video4,
-  // },
+  {
+    id: 4,
+    title: "4",
+    src: "https://ifh.cc/g/6SQAyA.jpg",
+    url: video4,
+  },
   {
     id: 5,
     title: "5",
