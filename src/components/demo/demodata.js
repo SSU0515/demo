@@ -2,10 +2,10 @@ import video1 from "../../asset/demovideo/video1.mp4";
 import video2 from "../../asset/demovideo/video2.mp4";
 import video3 from "../../asset/demovideo/video3.mp4";
 import video4 from "../../asset/demovideo/video4.mov";
-import video5 from "../../asset/demovideo/video5.mp4";
-import video6 from "../../asset/demovideo/video6.mp4";
-import video7 from "../../asset/demovideo/video7.mp4";
-import video8 from "../../asset/demovideo/video8.mp4";
+// import video5 from "../../asset/demovideo/video5.mp4";
+// import video6 from "../../asset/demovideo/video6.mp4";
+// import video7 from "../../asset/demovideo/video7.mp4";
+// import video8 from "../../asset/demovideo/video8.mp4";
 import video9 from "../../asset/demovideo/video9.mp4";
 
 export const data = [
@@ -32,33 +32,33 @@ export const data = [
   {
     id: 4,
     title: "4",
-    src: "https://ifh.cc/g/6SQAyA.jpg",
+    src: "https://i.ibb.co/kXpF7VS/2024-08-27-164243.png",
     url: video4,
   },
-  {
-    id: 5,
-    title: "5",
-    src: "https://i.ibb.co/VLddLvD/2024-08-27-164404.png",
-    url: video5,
-  },
-  {
-    id: 6,
-    title: "6",
-    src: "https://i.ibb.co/fF1SL8q/2024-08-27-164513.png",
-    url: video6,
-  },
-  {
-    id: 7,
-    title: "7",
-    src: "https://i.ibb.co/w7cctLY/2024-08-27-164627.png",
-    url: video7,
-  },
-  {
-    id: 8,
-    title: "8",
-    src: "https://i.ibb.co/2vwT7F1/2024-08-27-164709.png",
-    url: video8,
-  },
+  // {
+  //   id: 5,
+  //   title: "5",
+  //   src: "https://i.ibb.co/VLddLvD/2024-08-27-164404.png",
+  //   url: video5,
+  // },
+  // {
+  //   id: 6,
+  //   title: "6",
+  //   src: "https://i.ibb.co/fF1SL8q/2024-08-27-164513.png",
+  //   url: video6,
+  // },
+  // {
+  //   id: 7,
+  //   title: "7",
+  //   src: "https://i.ibb.co/w7cctLY/2024-08-27-164627.png",
+  //   url: video7,
+  // },
+  // {
+  //   id: 8,
+  //   title: "8",
+  //   src: "https://i.ibb.co/2vwT7F1/2024-08-27-164709.png",
+  //   url: video8,
+  // },
   {
     id: 9,
     title: "9",
