@@ -14,13 +14,13 @@ export const data = [
   {
     id: 3,
     title: "3",
-    src: "https://i.ytimg.com/an_webp/xm_7vfxPx0Q/mqdefault_6s.webp?du=3000&sqp=CKjosbYG&rs=AOn4CLBrxMN_M8P3tN0an6luk-1fOQISPA",
+    src: "https://ifh.cc/g/fopHoB.jpg",
     url: "https://www.youtube.com/embed/xm_7vfxPx0Q?si=cm2PrAO-_QvDiheZ",
   },
   {
     id: 4,
     title: "4",
-    src: "https://i.ytimg.com/an_webp/gctzN6wYYOY/mqdefault_6s.webp?du=3000&sqp=CLDbsbYG&rs=AOn4CLDse0Z7jVx9clYAfCTfeBtslEWrUg",
+    src: "https://ifh.cc/g/6SQAyA.jpg",
     url: "https://www.youtube.com/embed/gctzN6wYYOY?si=0jD9XZuylLhCUXSF",
   },
   {
