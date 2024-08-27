@@ -48,16 +48,7 @@ function Modal({ modalOpen, modalClose, url }) {
     <ModalWrapper onClick={modalClose}>
       <ModalContent onClick={(e) => e.stopPropagation()}>
         <CloseButton onClick={modalClose}>×</CloseButton>
-        <iframe
-          width="90%"
-          height="80%"
-          src={`${url}`}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+        <video src={`${url}`} controls />
       </ModalContent>
     </ModalWrapper>
   );
